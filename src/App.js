@@ -1,12 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import { Navbar,NavbarBrand } from 'reactstrap';
 import Menu from './components/MenuComponents';
+
+
 import './App.css';
- 
+import { DISHES } from './shared/dishes';
 
 
-function App() {
+
+
+  class App extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        dishes: DISHES
+      };
+    }
+render()
+{
+
+
   return (
     <div >
    
@@ -14,9 +28,11 @@ function App() {
        <div className="container"></div>
        <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
      </Navbar>
-  <Menu/>
+     <Menu dishes={this.state.dishes} />
+
     </div>
   );
+  }
 }
 
 export default App;
